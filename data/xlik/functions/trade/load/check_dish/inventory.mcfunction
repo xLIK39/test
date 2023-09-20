@@ -1,10 +1,14 @@
 
 # проверка блюда в инвентаре
 
-execute at @e[tag=x_intVillager,limit=1,sort=nearest,distance=..2] run function xlik:trade/load/random_dish
+# спавн дроппера с рандомным лутом
+execute at @e[tag=x_interaction_with_villager,limit=1,sort=nearest,distance=..2] run function xlik:trade/load/random_dish
 
-execute at @e[tag=x_intVillager,limit=1,sort=nearest,distance=..2] run function xlik:trade/load/flying_dish/spawn
-execute if entity @p[nbt={Inventory:[{tag:{Bread:1b}}]}] run function xlik:trade/load/dishes/bread
-execute if entity @p[nbt={Inventory:[{tag:{Apple_juice:1b}}]}] run function xlik:trade/load/dishes/apple_juice
+# потом удалю
+execute at @e[tag=x_interaction_with_villager,limit=1,sort=nearest,distance=..2] run function xlik:trade/load/flying_dish/spawn
+
+# проверка блюда в инвентаре
+execute if entity @p[nbt={Inventory:[{tag:{type:"Bread"}}]}] run function xlik:trade/load/dishes/inventory/bread
+execute if entity @p[nbt={Inventory:[{tag:{type:"Bread"}}]}] run function xlik:trade/load/dishes/inventory/apple_juice
 
 
